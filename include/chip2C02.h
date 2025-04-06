@@ -128,4 +128,25 @@ public:
 	void reset();
     bool m_bNmi = false;
 
+private:
+    struct sObjectAttributeEntry
+    {
+        uint8_t y;
+        uint8_t id;
+        uint8_t attribute;
+        uint8_t x;
+    } OAM[64];
+
+    uint8_t m_uOamAddr = 0x00;
+    sObjectAttributeEntry m_sSpriteScanLine[8];
+    uint8_t m_uSpriteCount;
+    uint8_t m_uSpriteShifterPatternLo[8];
+    uint8_t m_uSpriteShifterPatternHi[8];
+
+    bool m_bSpriteZeroHitPossible = false;
+    bool m_bSpriteZeroBeingRendered = false;
+
+public:
+    uint8_t* m_pOAM = (uint8_t*)OAM;
+
 };

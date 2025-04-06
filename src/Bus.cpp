@@ -23,9 +23,15 @@ void Bus::cpuWrite(uint16_t addr, uint8_t data)
     {
 		ppu.cpuWrite(addr & 0x0007, data);
     }
+	else if (addr == 0x4014)
+	{
+		m_uDmaPage = data;
+		m_uDmaAddr= 0x00;
+		m_bDmaTransfer = true;
+	}
 	else if (addr >= 0x4016 && addr <= 0x4017)
 	{
-		m_uController_state[addr & 0x0001] = m_uController[addr & 0x0001];
+		m_uControllerState[addr & 0x0001] = m_uController[addr & 0x0001];
 	}
 }
 
@@ -45,8 +51,8 @@ uint8_t Bus::cpuRead(uint16_t addr, bool bReadOnly)
 	}
 	else if (addr >= 0x4016 && addr <= 0x4017)
 	{
-		data = (m_uController_state[addr & 0x0001] & 0x80) > 0;
-		m_uController_state[addr & 0x0001] <<= 1;
+		data = (m_uControllerState[addr & 0x0001] & 0x80) > 0;
+		m_uControllerState[addr & 0x0001] <<= 1;
 	}
 
 	return data;
@@ -71,7 +77,38 @@ void Bus::clock()
 	ppu.clock();
 	if (m_uNSystemClockCounter % 3 == 0)
 	{
-		cpu.clock();
+		if (m_bDmaTransfer)
+		{
+			if (m_bDmaDummy)
+			{
+				if (m_uNSystemClockCounter %2 == 1)
+				{
+					m_bDmaDummy = false;
+				}
+			}
+			else
+			{
+				if (m_uNSystemClockCounter %2 == 0)
+				{
+					m_uDmaData = cpuRead(m_uDmaPage << 8 | m_uDmaAddr);
+				}
+				else
+				{
+					ppu.m_pOAM[m_uDmaAddr] = m_uDmaData;
+					m_uDmaAddr++;
+
+					if (m_uDmaAddr == 0x00)
+					{
+						m_bDmaTransfer = false;
+						m_bDmaDummy = true;
+					}
+				}
+			}
+		}
+		else
+		{
+			cpu.clock();
+		}
 	}
 
     if (ppu.m_bNmi)

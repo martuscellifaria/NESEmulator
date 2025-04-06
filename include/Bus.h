@@ -24,12 +24,19 @@ public:
     void cpuWrite(uint16_t addr, uint8_t data);
     uint8_t cpuRead(uint16_t addr, bool bReadOnly = false);
 
-private:
-    uint32_t m_uNSystemClockCounter = 0;
-	uint8_t m_uController_state[2];
-
 public:
     void insertCartridge(const std::shared_ptr<Cartridge>& pCartridge);
     void reset();
     void clock();
+
+private:
+    uint32_t m_uNSystemClockCounter = 0;
+	uint8_t m_uControllerState[2];
+
+    uint8_t m_uDmaPage = 0x00;
+    uint8_t m_uDmaAddr = 0x00;
+    uint8_t m_uDmaData = 0x00;
+
+    bool m_bDmaTransfer = false;
+    bool m_bDmaDummy = true;
 };
