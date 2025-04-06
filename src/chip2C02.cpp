@@ -2,98 +2,98 @@
 
 Chip2C02::Chip2C02()
 {
-    palScreen[0x00] = olc::Pixel(84, 84, 84);
-	palScreen[0x01] = olc::Pixel(0, 30, 116);
-	palScreen[0x02] = olc::Pixel(8, 16, 144);
-	palScreen[0x03] = olc::Pixel(48, 0, 136);
-	palScreen[0x04] = olc::Pixel(68, 0, 100);
-	palScreen[0x05] = olc::Pixel(92, 0, 48);
-	palScreen[0x06] = olc::Pixel(84, 4, 0);
-	palScreen[0x07] = olc::Pixel(60, 24, 0);
-	palScreen[0x08] = olc::Pixel(32, 42, 0);
-	palScreen[0x09] = olc::Pixel(8, 58, 0);
-	palScreen[0x0A] = olc::Pixel(0, 64, 0);
-	palScreen[0x0B] = olc::Pixel(0, 60, 0);
-	palScreen[0x0C] = olc::Pixel(0, 50, 60);
-	palScreen[0x0D] = olc::Pixel(0, 0, 0);
-	palScreen[0x0E] = olc::Pixel(0, 0, 0);
-	palScreen[0x0F] = olc::Pixel(0, 0, 0);
+    m_pPalScreen[0x00] = olc::Pixel(84, 84, 84);
+	m_pPalScreen[0x01] = olc::Pixel(0, 30, 116);
+	m_pPalScreen[0x02] = olc::Pixel(8, 16, 144);
+	m_pPalScreen[0x03] = olc::Pixel(48, 0, 136);
+	m_pPalScreen[0x04] = olc::Pixel(68, 0, 100);
+	m_pPalScreen[0x05] = olc::Pixel(92, 0, 48);
+	m_pPalScreen[0x06] = olc::Pixel(84, 4, 0);
+	m_pPalScreen[0x07] = olc::Pixel(60, 24, 0);
+	m_pPalScreen[0x08] = olc::Pixel(32, 42, 0);
+	m_pPalScreen[0x09] = olc::Pixel(8, 58, 0);
+	m_pPalScreen[0x0A] = olc::Pixel(0, 64, 0);
+	m_pPalScreen[0x0B] = olc::Pixel(0, 60, 0);
+	m_pPalScreen[0x0C] = olc::Pixel(0, 50, 60);
+	m_pPalScreen[0x0D] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x0E] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x0F] = olc::Pixel(0, 0, 0);
 
-	palScreen[0x10] = olc::Pixel(152, 150, 152);
-	palScreen[0x11] = olc::Pixel(8, 76, 196);
-	palScreen[0x12] = olc::Pixel(48, 50, 236);
-	palScreen[0x13] = olc::Pixel(92, 30, 228);
-	palScreen[0x14] = olc::Pixel(136, 20, 176);
-	palScreen[0x15] = olc::Pixel(160, 20, 100);
-	palScreen[0x16] = olc::Pixel(152, 34, 32);
-	palScreen[0x17] = olc::Pixel(120, 60, 0);
-	palScreen[0x18] = olc::Pixel(84, 90, 0);
-	palScreen[0x19] = olc::Pixel(40, 114, 0);
-	palScreen[0x1A] = olc::Pixel(8, 124, 0);
-	palScreen[0x1B] = olc::Pixel(0, 118, 40);
-	palScreen[0x1C] = olc::Pixel(0, 102, 120);
-	palScreen[0x1D] = olc::Pixel(0, 0, 0);
-	palScreen[0x1E] = olc::Pixel(0, 0, 0);
-	palScreen[0x1F] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x10] = olc::Pixel(152, 150, 152);
+	m_pPalScreen[0x11] = olc::Pixel(8, 76, 196);
+	m_pPalScreen[0x12] = olc::Pixel(48, 50, 236);
+	m_pPalScreen[0x13] = olc::Pixel(92, 30, 228);
+	m_pPalScreen[0x14] = olc::Pixel(136, 20, 176);
+	m_pPalScreen[0x15] = olc::Pixel(160, 20, 100);
+	m_pPalScreen[0x16] = olc::Pixel(152, 34, 32);
+	m_pPalScreen[0x17] = olc::Pixel(120, 60, 0);
+	m_pPalScreen[0x18] = olc::Pixel(84, 90, 0);
+	m_pPalScreen[0x19] = olc::Pixel(40, 114, 0);
+	m_pPalScreen[0x1A] = olc::Pixel(8, 124, 0);
+	m_pPalScreen[0x1B] = olc::Pixel(0, 118, 40);
+	m_pPalScreen[0x1C] = olc::Pixel(0, 102, 120);
+	m_pPalScreen[0x1D] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x1E] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x1F] = olc::Pixel(0, 0, 0);
 
-	palScreen[0x20] = olc::Pixel(236, 238, 236);
-	palScreen[0x21] = olc::Pixel(76, 154, 236);
-	palScreen[0x22] = olc::Pixel(120, 124, 236);
-	palScreen[0x23] = olc::Pixel(176, 98, 236);
-	palScreen[0x24] = olc::Pixel(228, 84, 236);
-	palScreen[0x25] = olc::Pixel(236, 88, 180);
-	palScreen[0x26] = olc::Pixel(236, 106, 100);
-	palScreen[0x27] = olc::Pixel(212, 136, 32);
-	palScreen[0x28] = olc::Pixel(160, 170, 0);
-	palScreen[0x29] = olc::Pixel(116, 196, 0);
-	palScreen[0x2A] = olc::Pixel(76, 208, 32);
-	palScreen[0x2B] = olc::Pixel(56, 204, 108);
-	palScreen[0x2C] = olc::Pixel(56, 180, 204);
-	palScreen[0x2D] = olc::Pixel(60, 60, 60);
-	palScreen[0x2E] = olc::Pixel(0, 0, 0);
-	palScreen[0x2F] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x20] = olc::Pixel(236, 238, 236);
+	m_pPalScreen[0x21] = olc::Pixel(76, 154, 236);
+	m_pPalScreen[0x22] = olc::Pixel(120, 124, 236);
+	m_pPalScreen[0x23] = olc::Pixel(176, 98, 236);
+	m_pPalScreen[0x24] = olc::Pixel(228, 84, 236);
+	m_pPalScreen[0x25] = olc::Pixel(236, 88, 180);
+	m_pPalScreen[0x26] = olc::Pixel(236, 106, 100);
+	m_pPalScreen[0x27] = olc::Pixel(212, 136, 32);
+	m_pPalScreen[0x28] = olc::Pixel(160, 170, 0);
+	m_pPalScreen[0x29] = olc::Pixel(116, 196, 0);
+	m_pPalScreen[0x2A] = olc::Pixel(76, 208, 32);
+	m_pPalScreen[0x2B] = olc::Pixel(56, 204, 108);
+	m_pPalScreen[0x2C] = olc::Pixel(56, 180, 204);
+	m_pPalScreen[0x2D] = olc::Pixel(60, 60, 60);
+	m_pPalScreen[0x2E] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x2F] = olc::Pixel(0, 0, 0);
 
-	palScreen[0x30] = olc::Pixel(236, 238, 236);
-	palScreen[0x31] = olc::Pixel(168, 204, 236);
-	palScreen[0x32] = olc::Pixel(188, 188, 236);
-	palScreen[0x33] = olc::Pixel(212, 178, 236);
-	palScreen[0x34] = olc::Pixel(236, 174, 236);
-	palScreen[0x35] = olc::Pixel(236, 174, 212);
-	palScreen[0x36] = olc::Pixel(236, 180, 176);
-	palScreen[0x37] = olc::Pixel(228, 196, 144);
-	palScreen[0x38] = olc::Pixel(204, 210, 120);
-	palScreen[0x39] = olc::Pixel(180, 222, 120);
-	palScreen[0x3A] = olc::Pixel(168, 226, 144);
-	palScreen[0x3B] = olc::Pixel(152, 226, 180);
-	palScreen[0x3C] = olc::Pixel(160, 214, 228);
-	palScreen[0x3D] = olc::Pixel(160, 162, 160);
-	palScreen[0x3E] = olc::Pixel(0, 0, 0);
-	palScreen[0x3F] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x30] = olc::Pixel(236, 238, 236);
+	m_pPalScreen[0x31] = olc::Pixel(168, 204, 236);
+	m_pPalScreen[0x32] = olc::Pixel(188, 188, 236);
+	m_pPalScreen[0x33] = olc::Pixel(212, 178, 236);
+	m_pPalScreen[0x34] = olc::Pixel(236, 174, 236);
+	m_pPalScreen[0x35] = olc::Pixel(236, 174, 212);
+	m_pPalScreen[0x36] = olc::Pixel(236, 180, 176);
+	m_pPalScreen[0x37] = olc::Pixel(228, 196, 144);
+	m_pPalScreen[0x38] = olc::Pixel(204, 210, 120);
+	m_pPalScreen[0x39] = olc::Pixel(180, 222, 120);
+	m_pPalScreen[0x3A] = olc::Pixel(168, 226, 144);
+	m_pPalScreen[0x3B] = olc::Pixel(152, 226, 180);
+	m_pPalScreen[0x3C] = olc::Pixel(160, 214, 228);
+	m_pPalScreen[0x3D] = olc::Pixel(160, 162, 160);
+	m_pPalScreen[0x3E] = olc::Pixel(0, 0, 0);
+	m_pPalScreen[0x3F] = olc::Pixel(0, 0, 0);
 
-	sprScreen = new olc::Sprite(256, 240);
-	sprNameTable[0] = new olc::Sprite(256, 240);
-	sprNameTable[1] = new olc::Sprite(256, 240);
-	sprPatternTable[0] = new olc::Sprite(128, 128);
-	sprPatternTable[1] = new olc::Sprite(128, 128);
+	m_sSprScreen = new olc::Sprite(256, 240);
+	m_sSprNameTable[0] = new olc::Sprite(256, 240);
+	m_sSprNameTable[1] = new olc::Sprite(256, 240);
+	m_sSprPatternTable[0] = new olc::Sprite(128, 128);
+	m_sSprPatternTable[1] = new olc::Sprite(128, 128);
 }
 
 Chip2C02::~Chip2C02()
 {
-    delete sprScreen;
-	delete sprNameTable[0];
-	delete sprNameTable[1];
-	delete sprPatternTable[0];
-	delete sprPatternTable[1];
+    delete m_sSprScreen;
+	delete m_sSprNameTable[0];
+	delete m_sSprNameTable[1];
+	delete m_sSprPatternTable[0];
+	delete m_sSprPatternTable[1];
 }
 
 olc::Sprite& Chip2C02::GetScreen()
 {
-	return *sprScreen;
+	return *m_sSprScreen;
 }
 
 olc::Sprite & Chip2C02::GetNameTable(uint8_t i)
 {
-	return *sprNameTable[i];
+	return *m_sSprNameTable[i];
 }
 
 olc::Sprite & Chip2C02::GetPatternTable(uint8_t i, uint8_t palette)
@@ -114,17 +114,17 @@ olc::Sprite & Chip2C02::GetPatternTable(uint8_t i, uint8_t palette)
 					uint8_t pixel = (tile_lsb & 0x01) + (tile_msb & 0x01);
 					tile_lsb >>= 1; tile_msb >>= 1;
 
-					sprPatternTable[i]->SetPixel(nTileX * 8 + (7 - col), nTileY * 8 + row, GetColourFromPaletteRam(palette, pixel));
+					m_sSprPatternTable[i]->SetPixel(nTileX * 8 + (7 - col), nTileY * 8 + row, GetColourFromPaletteRam(palette, pixel));
 				}
 			}
 		}
 	}
-	return *sprPatternTable[i];
+	return *m_sSprPatternTable[i];
 }
 
 olc::Pixel& Chip2C02::GetColourFromPaletteRam(uint8_t palette, uint8_t pixel)
 {
-	return palScreen[ppuRead(0x3F00 + (palette << 2) + pixel) & 0x3F];
+	return m_pPalScreen[ppuRead(0x3F00 + (palette << 2) + pixel) & 0x3F];
 }
 
 uint8_t Chip2C02::cpuRead(uint16_t addr, bool bRdOnly)
@@ -164,9 +164,9 @@ uint8_t Chip2C02::cpuRead(uint16_t addr, bool bRdOnly)
 			case 0x0001:
 				break;
 			case 0x0002:
-				data = (status.reg & 0xE0) | (ppu_data_buffer & 0x1F);
+				data = (status.reg & 0xE0) | (m_uPpuDataBuffer & 0x1F);
 				status.vertical_blank = 0;
-				address_latch = 0;
+				m_uAddressLatch = 0;
 				break;
 			case 0x0003:
 				break;
@@ -174,10 +174,10 @@ uint8_t Chip2C02::cpuRead(uint16_t addr, bool bRdOnly)
 			case 0x0005: break;
 			case 0x0006: break;
 			case 0x0007:
-				data = ppu_data_buffer;
-				ppu_data_buffer = ppuRead(vram_addr.reg);
-				if (vram_addr.reg >= 0x3F00) data = ppu_data_buffer;
-				vram_addr.reg += (control.increment_mode ? 32 : 1);
+				data = m_uPpuDataBuffer;
+				m_uPpuDataBuffer = ppuRead(m_lVRamAddr.reg);
+				if (m_lVRamAddr.reg >= 0x3F00) data = m_uPpuDataBuffer;
+				m_lVRamAddr.reg += (control.increment_mode ? 32 : 1);
 				break;
 		}
 	}
@@ -189,8 +189,8 @@ void Chip2C02::cpuWrite(uint16_t addr, uint8_t data)
     {
         case 0x0000:
 			control.reg = data;
-			tram_addr.nametable_x = control.nametable_x;
-			tram_addr.nametable_y = control.nametable_y;
+			m_lTRamAddr.nametable_x = control.nametable_x;
+			m_lTRamAddr.nametable_y = control.nametable_y;
         break;
         case 0x0001:
 			mask.reg = data;
@@ -202,35 +202,35 @@ void Chip2C02::cpuWrite(uint16_t addr, uint8_t data)
         case 0x0004:
         break;
         case 0x0005:
-			if (address_latch == 0)
+			if (m_uAddressLatch == 0)
 			{
-				fine_x = data & 0x07;
-				tram_addr.coarse_x = data >> 3;
-				address_latch = 1;
+				m_uFineX = data & 0x07;
+				m_lTRamAddr.coarse_x = data >> 3;
+				m_uAddressLatch = 1;
 			}
 			else
 			{
-				tram_addr.fine_y = data & 0x07;
-				tram_addr.coarse_y = data >> 3;
-				address_latch = 0;
+				m_lTRamAddr.fine_y = data & 0x07;
+				m_lTRamAddr.coarse_y = data >> 3;
+				m_uAddressLatch = 0;
 			}
         break;
         case 0x0006:
-			if (address_latch == 0)
+			if (m_uAddressLatch == 0)
 			{
-				tram_addr.reg = (uint16_t)((data & 0x3F) << 8) | (tram_addr.reg & 0x00FF);
-				address_latch = 1;
+				m_lTRamAddr.reg = (uint16_t)((data & 0x3F) << 8) | (m_lTRamAddr.reg & 0x00FF);
+				m_uAddressLatch = 1;
 			}
 			else
 			{
-				tram_addr.reg = (tram_addr.reg & 0xFF00) | data;
-				vram_addr = tram_addr;
-				address_latch = 0;
+				m_lTRamAddr.reg = (m_lTRamAddr.reg & 0xFF00) | data;
+				m_lVRamAddr = m_lTRamAddr;
+				m_uAddressLatch = 0;
 			}
         	break;
         case 0x0007:
-			ppuWrite(vram_addr.reg, data);
-			vram_addr.reg += (control.increment_mode ? 32 : 1);
+			ppuWrite(m_lVRamAddr.reg, data);
+			m_lVRamAddr.reg += (control.increment_mode ? 32 : 1);
         break;
     }
 }
@@ -349,24 +349,24 @@ void Chip2C02::ConnectCartridge(const std::shared_ptr<Cartridge>& pCartridge)
 
 void Chip2C02::reset()
 {
-	fine_x = 0x00;
-	address_latch = 0x00;
-	ppu_data_buffer = 0x00;
+	m_uFineX = 0x00;
+	m_uAddressLatch = 0x00;
+	m_uPpuDataBuffer = 0x00;
 	scanline = 0;
 	cycle = 0;
-	bg_next_tile_id = 0x00;
-	bg_next_tile_attrib = 0x00;
-	bg_next_tile_lsb = 0x00;
-	bg_next_tile_msb = 0x00;
-	bg_shifter_pattern_lo = 0x0000;
-	bg_shifter_pattern_hi = 0x0000;
-	bg_shifter_attrib_lo = 0x0000;
-	bg_shifter_attrib_hi = 0x0000;
+	m_uBgNextTileId = 0x00;
+	m_uBgNextTileAttrib = 0x00;
+	m_uBgNextTileLsb = 0x00;
+	m_uBgNextTileMsb = 0x00;
+	m_uBgShifterPatternLo = 0x0000;
+	m_uBgShifterPatternHi = 0x0000;
+	m_uBgShifterPatternAttribLo = 0x0000;
+	m_uBgShifterPatternAttribHi = 0x0000;
 	status.reg = 0x00;
 	mask.reg = 0x00;
 	control.reg = 0x00;
-	vram_addr.reg = 0x0000;
-	tram_addr.reg = 0x0000;
+	m_lVRamAddr.reg = 0x0000;
+	m_lTRamAddr.reg = 0x0000;
 }
 
 void Chip2C02::clock()
@@ -375,14 +375,14 @@ void Chip2C02::clock()
 	{
 		if (mask.render_background || mask.render_sprites)
 		{
-			if (vram_addr.coarse_x == 31)
+			if (m_lVRamAddr.coarse_x == 31)
 			{
-				vram_addr.coarse_x = 0;
-				vram_addr.nametable_x = ~vram_addr.nametable_x;
+				m_lVRamAddr.coarse_x = 0;
+				m_lVRamAddr.nametable_x = ~m_lVRamAddr.nametable_x;
 			}
 			else
 			{
-				vram_addr.coarse_x++;
+				m_lVRamAddr.coarse_x++;
 			}
 		}
 	};
@@ -391,26 +391,26 @@ void Chip2C02::clock()
 	{
 		if (mask.render_background || mask.render_sprites)
 		{
-			if (vram_addr.fine_y < 7)
+			if (m_lVRamAddr.fine_y < 7)
 			{
-				vram_addr.fine_y++;
+				m_lVRamAddr.fine_y++;
 			}
 			else
 			{
-				vram_addr.fine_y = 0;
+				m_lVRamAddr.fine_y = 0;
 
-				if (vram_addr.coarse_y == 29)
+				if (m_lVRamAddr.coarse_y == 29)
 				{
-					vram_addr.coarse_y = 0;
-					vram_addr.nametable_y = ~vram_addr.nametable_y;
+					m_lVRamAddr.coarse_y = 0;
+					m_lVRamAddr.nametable_y = ~m_lVRamAddr.nametable_y;
 				}
-				else if (vram_addr.coarse_y == 31)
+				else if (m_lVRamAddr.coarse_y == 31)
 				{
-					vram_addr.coarse_y = 0;
+					m_lVRamAddr.coarse_y = 0;
 				}
 				else
 				{
-					vram_addr.coarse_y++;
+					m_lVRamAddr.coarse_y++;
 				}
 			}
 		}
@@ -420,8 +420,8 @@ void Chip2C02::clock()
 	{
 		if (mask.render_background || mask.render_sprites)
 		{
-			vram_addr.nametable_x = tram_addr.nametable_x;
-			vram_addr.coarse_x    = tram_addr.coarse_x;
+			m_lVRamAddr.nametable_x = m_lTRamAddr.nametable_x;
+			m_lVRamAddr.coarse_x    = m_lTRamAddr.coarse_x;
 		}
 	};
 	
@@ -429,30 +429,30 @@ void Chip2C02::clock()
 	{
 		if (mask.render_background || mask.render_sprites)
 		{
-			vram_addr.fine_y      = tram_addr.fine_y;
-			vram_addr.nametable_y = tram_addr.nametable_y;
-			vram_addr.coarse_y    = tram_addr.coarse_y;
+			m_lVRamAddr.fine_y      = m_lTRamAddr.fine_y;
+			m_lVRamAddr.nametable_y = m_lTRamAddr.nametable_y;
+			m_lVRamAddr.coarse_y    = m_lTRamAddr.coarse_y;
 		}
 	};
 	
 	auto LoadBackgroundShifters = [&]()
 	{
-		bg_shifter_pattern_lo = (bg_shifter_pattern_lo & 0xFF00) | bg_next_tile_lsb;
-		bg_shifter_pattern_hi = (bg_shifter_pattern_hi & 0xFF00) | bg_next_tile_msb;
+		m_uBgShifterPatternLo = (m_uBgShifterPatternLo & 0xFF00) | m_uBgNextTileLsb;
+		m_uBgShifterPatternHi = (m_uBgShifterPatternHi & 0xFF00) | m_uBgNextTileMsb;
 
-		bg_shifter_attrib_lo  = (bg_shifter_attrib_lo & 0xFF00) | ((bg_next_tile_attrib & 0b01) ? 0xFF : 0x00);
-		bg_shifter_attrib_hi  = (bg_shifter_attrib_hi & 0xFF00) | ((bg_next_tile_attrib & 0b10) ? 0xFF : 0x00);
+		m_uBgShifterPatternAttribLo  = (m_uBgShifterPatternAttribLo & 0xFF00) | ((m_uBgNextTileAttrib & 0b01) ? 0xFF : 0x00);
+		m_uBgShifterPatternAttribHi  = (m_uBgShifterPatternAttribHi & 0xFF00) | ((m_uBgNextTileAttrib & 0b10) ? 0xFF : 0x00);
 	};
 
 	auto UpdateShifters = [&]()
 	{
 		if (mask.render_background)
 		{
-			bg_shifter_pattern_lo <<= 1;
-			bg_shifter_pattern_hi <<= 1;
+			m_uBgShifterPatternLo <<= 1;
+			m_uBgShifterPatternHi <<= 1;
 
-			bg_shifter_attrib_lo <<= 1;
-			bg_shifter_attrib_hi <<= 1;
+			m_uBgShifterPatternAttribLo <<= 1;
+			m_uBgShifterPatternAttribHi <<= 1;
 		}
 	};
 
@@ -475,27 +475,27 @@ void Chip2C02::clock()
 			{
 				case 0:
 					LoadBackgroundShifters();
-					bg_next_tile_id = ppuRead(0x2000 | (vram_addr.reg & 0x0FFF));
+					m_uBgNextTileId = ppuRead(0x2000 | (m_lVRamAddr.reg & 0x0FFF));
 					break;
 				case 2:
-				bg_next_tile_attrib = ppuRead(0x23C0 | (vram_addr.nametable_y << 11) 
-														| (vram_addr.nametable_x << 10) 
-														| ((vram_addr.coarse_y >> 2) << 3) 
-														| (vram_addr.coarse_x >> 2));
+				m_uBgNextTileAttrib = ppuRead(0x23C0 | (m_lVRamAddr.nametable_y << 11) 
+														| (m_lVRamAddr.nametable_x << 10) 
+														| ((m_lVRamAddr.coarse_y >> 2) << 3) 
+														| (m_lVRamAddr.coarse_x >> 2));
 
-					if (vram_addr.coarse_y & 0x02) bg_next_tile_attrib >>= 4;
-					if (vram_addr.coarse_x & 0x02) bg_next_tile_attrib >>= 2;
-					bg_next_tile_attrib &= 0x03;
+					if (m_lVRamAddr.coarse_y & 0x02) m_uBgNextTileAttrib >>= 4;
+					if (m_lVRamAddr.coarse_x & 0x02) m_uBgNextTileAttrib >>= 2;
+					m_uBgNextTileAttrib &= 0x03;
 					break;
 				case 4:
-				bg_next_tile_lsb = ppuRead((control.pattern_background << 12) 
-										+ ((uint16_t)bg_next_tile_id << 4) 
-										+ (vram_addr.fine_y) + 0);
+				m_uBgNextTileLsb = ppuRead((control.pattern_background << 12) 
+										+ ((uint16_t)m_uBgNextTileId << 4) 
+										+ (m_lVRamAddr.fine_y) + 0);
 					break;
 				case 6:
-				bg_next_tile_msb = ppuRead((control.pattern_background << 12)
-											+ ((uint16_t)bg_next_tile_id << 4)
-											+ (vram_addr.fine_y) + 8);
+				m_uBgNextTileMsb = ppuRead((control.pattern_background << 12)
+											+ ((uint16_t)m_uBgNextTileId << 4)
+											+ (m_lVRamAddr.fine_y) + 8);
 					break;
 				case 7:
 					IncrementScrollX();
@@ -516,7 +516,7 @@ void Chip2C02::clock()
 
 		if (cycle == 338 || cycle == 340)
 		{
-			bg_next_tile_id = ppuRead(0x2000 | (vram_addr.reg & 0x0FFF));
+			m_uBgNextTileId = ppuRead(0x2000 | (m_lVRamAddr.reg & 0x0FFF));
 		}
 
 		if (scanline == -1 && cycle >= 280 && cycle < 305)
@@ -547,19 +547,19 @@ void Chip2C02::clock()
 
 	if (mask.render_background)
 	{
-		uint16_t bit_mux = 0x8000 >> fine_x;
-		uint8_t p0_pixel = (bg_shifter_pattern_lo & bit_mux) > 0;
-		uint8_t p1_pixel = (bg_shifter_pattern_hi & bit_mux) > 0;
+		uint16_t bit_mux = 0x8000 >> m_uFineX;
+		uint8_t p0_pixel = (m_uBgShifterPatternLo & bit_mux) > 0;
+		uint8_t p1_pixel = (m_uBgShifterPatternHi & bit_mux) > 0;
 
 		bg_pixel = (p1_pixel << 1) | p0_pixel;
 		
-		uint8_t bg_pal0 = (bg_shifter_attrib_lo & bit_mux) > 0;
-		uint8_t bg_pal1 = (bg_shifter_attrib_hi & bit_mux) > 0;
+		uint8_t bg_pal0 = (m_uBgShifterPatternAttribLo & bit_mux) > 0;
+		uint8_t bg_pal1 = (m_uBgShifterPatternAttribHi & bit_mux) > 0;
 
 		bg_palette = (bg_pal1 << 1) | bg_pal0;
 	}
     
-	sprScreen->SetPixel(cycle - 1, scanline, GetColourFromPaletteRam(bg_palette, bg_pixel));
+	m_sSprScreen->SetPixel(cycle - 1, scanline, GetColourFromPaletteRam(bg_palette, bg_pixel));
     
 	cycle++;
     if (cycle >= 341)
@@ -569,7 +569,7 @@ void Chip2C02::clock()
         if (scanline >= 261)
         {
             scanline = -1;
-            frame_complete = true;
+            m_bFrameComplete = true;
         }
     }
 }

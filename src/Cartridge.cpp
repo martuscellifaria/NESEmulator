@@ -2,7 +2,6 @@
 
 Cartridge::Cartridge(const std::string& sFileName)
 {
-	// iNES Format Header
 	struct sHeader
 	{
 		char name[4];
@@ -27,11 +26,9 @@ Cartridge::Cartridge(const std::string& sFileName)
 		if (header.mapper1 & 0x04)
 			ifs.seekg(512, std::ios_base::cur);
 
-		// Determine Mapper ID
 		m_nMapperID = ((header.mapper2 >> 4) << 4) | (header.mapper1 >> 4);
 		mirror = (header.mapper1 & 0x01) ? VERTICAL : HORIZONTAL;
 
-		// "Discover" File Format
 		uint8_t nFileType = 1;
 
 		if (nFileType == 0)
@@ -64,13 +61,9 @@ Cartridge::Cartridge(const std::string& sFileName)
 
 		}
 
-		// Load appropriate mapper
 		switch (m_nMapperID)
 		{
 		case   0: m_pMapper= std::make_shared<Mapper_000>(m_nPRGBanks, m_nCHRBanks); break;
-		//case   2: pMapper = std::make_shared<Mapper_002>(nPRGBanks, nCHRBanks); break;
-		//case   3: pMapper = std::make_shared<Mapper_003>(nPRGBanks, nCHRBanks); break;
-		//case  66: pMapper = std::make_shared<Mapper_066>(nPRGBanks, nCHRBanks); break;
 		}
 
 		bImageValid = true;
@@ -84,7 +77,7 @@ Cartridge::~Cartridge()
     
 }
 
-bool Cartridge::ImageValid()
+bool Cartridge::imageValid()
 {
 	return bImageValid;
 }

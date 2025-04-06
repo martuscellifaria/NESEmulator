@@ -17,7 +17,7 @@ void Bus::cpuWrite(uint16_t addr, uint8_t data)
     }
 	else if (addr >= 0x0000 && addr <= 0x1FFF)
     {
-        cpuRam[addr & 0x07FF] = data;
+        m_uCpuRam[addr & 0x07FF] = data;
     }
 	else if (addr >= 0x2000 && addr <= 0x3FFF)
     {
@@ -25,7 +25,7 @@ void Bus::cpuWrite(uint16_t addr, uint8_t data)
     }
 	else if (addr >= 0x4016 && addr <= 0x4017)
 	{
-		controller_state[addr & 0x0001] = controller[addr & 0x0001];
+		m_uController_state[addr & 0x0001] = m_uController[addr & 0x0001];
 	}
 }
 
@@ -37,7 +37,7 @@ uint8_t Bus::cpuRead(uint16_t addr, bool bReadOnly)
 	}
 	else if (addr >= 0x0000 && addr <= 0x1FFF)
 	{
-		data = cpuRam[addr & 0x07FF];
+		data = m_uCpuRam[addr & 0x07FF];
 	}
 	else if (addr >= 0x2000 && addr <= 0x3FFF)
 	{
@@ -45,8 +45,8 @@ uint8_t Bus::cpuRead(uint16_t addr, bool bReadOnly)
 	}
 	else if (addr >= 0x4016 && addr <= 0x4017)
 	{
-		data = (controller_state[addr & 0x0001] & 0x80) > 0;
-		controller_state[addr & 0x0001] <<= 1;
+		data = (m_uController_state[addr & 0x0001] & 0x80) > 0;
+		m_uController_state[addr & 0x0001] <<= 1;
 	}
 
 	return data;

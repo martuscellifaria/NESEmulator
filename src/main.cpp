@@ -163,7 +163,7 @@ private:
 		// Load the cartridge
 		cart = std::make_shared<Cartridge>("../nestest.nes");
 		
-		if (!cart->ImageValid())
+		if (!cart->imageValid())
 			return false;
 
 		// Insert into NES
@@ -182,15 +182,15 @@ private:
 		Clear(olc::DARK_BLUE);
 
 		// Sneaky peek of controller input in next video! ;P
-		nes.controller[0] = 0x00;
-		nes.controller[0] |= GetKey(olc::Key::X).bHeld ? 0x80 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::Z).bHeld ? 0x40 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::A).bHeld ? 0x20 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::S).bHeld ? 0x10 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::UP).bHeld ? 0x08 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::DOWN).bHeld ? 0x04 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::LEFT).bHeld ? 0x02 : 0x00;
-		nes.controller[0] |= GetKey(olc::Key::RIGHT).bHeld ? 0x01 : 0x00;
+		nes.m_uController[0] = 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::X).bHeld ? 0x80 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::Z).bHeld ? 0x40 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::A).bHeld ? 0x20 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::S).bHeld ? 0x10 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::UP).bHeld ? 0x08 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::DOWN).bHeld ? 0x04 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::LEFT).bHeld ? 0x02 : 0x00;
+		nes.m_uController[0] |= GetKey(olc::Key::RIGHT).bHeld ? 0x01 : 0x00;
 
 		if (GetKey(olc::Key::SPACE).bPressed) bEmulationRun = !bEmulationRun;
 		if (GetKey(olc::Key::R).bPressed) nes.reset();
@@ -203,8 +203,8 @@ private:
 			else
 			{
 				fResidualTime += (1.0f / 60.0f) - fElapsedTime;
-				do { nes.clock(); } while (!nes.ppu.frame_complete);
-				nes.ppu.frame_complete = false;
+				do { nes.clock(); } while (!nes.ppu.m_bFrameComplete);
+				nes.ppu.m_bFrameComplete = false;
 			}
 		}
 		else
@@ -224,11 +224,11 @@ private:
 			if (GetKey(olc::Key::F).bPressed)
 			{
 				// Clock enough times to draw a single frame
-				do { nes.clock(); } while (!nes.ppu.frame_complete);
+				do { nes.clock(); } while (!nes.ppu.m_bFrameComplete);
 				// Use residual clock cycles to complete current instruction
 				do { nes.clock(); } while (!nes.cpu.complete());
 				// Reset frame completion flag
-				nes.ppu.frame_complete = false;
+				nes.ppu.m_bFrameComplete = false;
 			}
 		}
 

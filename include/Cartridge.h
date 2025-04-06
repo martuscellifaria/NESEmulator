@@ -14,7 +14,7 @@ public:
     ~Cartridge();
 
 public:
-	bool ImageValid();
+	bool imageValid();
 
 	enum MIRROR
 	{

@@ -16,10 +16,10 @@ public:
     uint8_t m_uTablePalette[32];
 
 private:
-        olc::Pixel palScreen[0x40];
-        olc::Sprite* sprScreen;
-        olc::Sprite* sprNameTable[2];
-        olc::Sprite* sprPatternTable[2];
+        olc::Pixel m_pPalScreen[0x40];
+        olc::Sprite* m_sSprScreen;
+        olc::Sprite* m_sSprNameTable[2];
+        olc::Sprite* m_sSprPatternTable[2];
 
 public:
         // Debugging Utilities
@@ -28,7 +28,7 @@ public:
         olc::Sprite& GetPatternTable(uint8_t i, uint8_t palette);
 
         olc::Pixel& GetColourFromPaletteRam(uint8_t palette, uint8_t pixel);
-        bool frame_complete = false;
+        bool m_bFrameComplete = false;
 
 private:
 
@@ -92,26 +92,26 @@ private:
 		uint16_t reg = 0x0000;
     };
 
-    loopy_register vram_addr;
-    loopy_register tram_addr;
+    loopy_register m_lVRamAddr;
+    loopy_register m_lTRamAddr;
 
-    uint8_t fine_x = 0x00;
+    uint8_t m_uFineX = 0x00;
 
-    uint8_t address_latch = 0x00;
-	uint8_t ppu_data_buffer = 0x00;
+    uint8_t m_uAddressLatch = 0x00;
+	uint8_t m_uPpuDataBuffer = 0x00;
     
     int16_t scanline = 0;
     int16_t cycle = 0;
 
-    uint8_t bg_next_tile_id = 0x00;
-    uint8_t bg_next_tile_attrib = 0x00;
-    uint8_t bg_next_tile_lsb = 0x00;
-    uint8_t bg_next_tile_msb = 0x00;
+    uint8_t m_uBgNextTileId = 0x00;
+    uint8_t m_uBgNextTileAttrib = 0x00;
+    uint8_t m_uBgNextTileLsb = 0x00;
+    uint8_t m_uBgNextTileMsb = 0x00;
 
-	uint16_t bg_shifter_pattern_lo = 0x0000;
-	uint16_t bg_shifter_pattern_hi = 0x0000;
-	uint16_t bg_shifter_attrib_lo  = 0x0000;
-	uint16_t bg_shifter_attrib_hi  = 0x0000;
+	uint16_t m_uBgShifterPatternLo = 0x0000;
+	uint16_t m_uBgShifterPatternHi = 0x0000;
+	uint16_t m_uBgShifterPatternAttribLo  = 0x0000;
+	uint16_t m_uBgShifterPatternAttribHi  = 0x0000;
 
 public:
     uint8_t cpuRead(uint16_t addr, bool bRdOnly = false);
