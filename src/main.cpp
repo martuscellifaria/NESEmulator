@@ -133,7 +133,7 @@ private:
 
 	bool OnUserCreate() override
 	{
-		cart = std::make_shared<Cartridge>("../smb.nes");
+		cart = std::make_shared<Cartridge>("../nestest.nes");
 		
 		if (!cart->imageValid())
 			return false;

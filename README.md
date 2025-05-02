@@ -1,7 +1,38 @@
-#NES Emulator Study
+# NES Emulator Study
 - Learning a bit of how the 6502 Chip works by implementing a NES emulator.
 Thanks OneLoneCoder for the lecture.
 
+# How to run it (Linux only):
+Clone the repository and cd into it.
+```
+$ git clone git@github.com:martuscellifaria/NESEmulator.git
+$ cd NESEmulator
+```
+
+Create a build folder and cd into it:
+```
+$ mkdir build && cd build
+```
+
+Make sure you have CMake installed and execute the following:
+```
+$ cmake -DCMAKE_BUILD_TYPE=Release ..
+```
+
+After a few seconds, you will get a pretty Makefile and the project will be ready to compile with make:
+```
+$ make
+```
+
+Now it is done and you can execute it:
+```
+$ ./NESBound
+```
+
+The emulator is just a project for strict learning purposes, and shall not be comercialized.
+If you're a retro gaming enthusiast and into some advanced C++, make yourself at home.
+
+## Credits to David aka. Javidx9 (or OneLoneCoder) and his license follows:
 
 License (OLC-3)
 Copyright 2018, 2019, 2020, 2021 OneLoneCoder.com
