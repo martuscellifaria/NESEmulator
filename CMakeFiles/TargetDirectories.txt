@@ -1,3 +1,0 @@
-/home/martuscellifaria/Projekte/C++/Emulator/CMakeFiles/NESBound.dir
-/home/martuscellifaria/Projekte/C++/Emulator/CMakeFiles/edit_cache.dir
-/home/martuscellifaria/Projekte/C++/Emulator/CMakeFiles/rebuild_cache.dir
