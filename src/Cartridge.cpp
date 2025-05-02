@@ -27,7 +27,7 @@ Cartridge::Cartridge(const std::string& sFileName)
 			ifs.seekg(512, std::ios_base::cur);
 
 		m_nMapperID = ((header.mapper2 >> 4) << 4) | (header.mapper1 >> 4);
-		mirror = (header.mapper1 & 0x01) ? VERTICAL : HORIZONTAL;
+		hw_mirror = (header.mapper1 & 0x01) ? VERTICAL : HORIZONTAL;
 
 		uint8_t nFileType = 1;
 
@@ -64,6 +64,11 @@ Cartridge::Cartridge(const std::string& sFileName)
 		switch (m_nMapperID)
 		{
 		case   0: m_pMapper= std::make_shared<Mapper_000>(m_nPRGBanks, m_nCHRBanks); break;
+		case   1: m_pMapper= std::make_shared<Mapper_001>(m_nPRGBanks, m_nCHRBanks); break;
+		case   2: m_pMapper= std::make_shared<Mapper_002>(m_nPRGBanks, m_nCHRBanks); break;
+		case   3: m_pMapper= std::make_shared<Mapper_003>(m_nPRGBanks, m_nCHRBanks); break;
+		case   4: m_pMapper= std::make_shared<Mapper_004>(m_nPRGBanks, m_nCHRBanks); break;
+		case   66: m_pMapper= std::make_shared<Mapper_066>(m_nPRGBanks, m_nCHRBanks); break;
 		}
 
 		bImageValid = true;
@@ -85,8 +90,12 @@ bool Cartridge::imageValid()
 bool Cartridge::cpuRead(uint16_t addr, uint8_t& data)
 {
     uint32_t mapped_addr = 0;
-    if(m_pMapper->cpuMapRead(addr, mapped_addr))
+    if(m_pMapper->cpuMapRead(addr, mapped_addr, data))
     {
+		if (mapped_addr == 0xFFFFFFFF)
+		{
+			return true;
+		}
         data = m_vPRGMemory[mapped_addr];
         return true;
     }
@@ -135,4 +144,14 @@ void Cartridge::reset()
     {
         m_pMapper->reset();
     }
+}
+
+MIRROR Cartridge::Mirror()
+{
+	MIRROR m = m_pMapper->mirror();
+	if (m == MIRROR::HARDWARE)
+	{
+		return hw_mirror;
+	}
+	return m;
 }

@@ -23,6 +23,10 @@ void Bus::cpuWrite(uint16_t addr, uint8_t data)
     {
 		ppu.cpuWrite(addr & 0x0007, data);
     }
+	else if ((addr >= 0x4000 && addr <= 0x4013 || addr == 0x4015 || addr == 0x4017))
+	{
+		apu.cpuWrite(addr, data);
+	}
 	else if (addr == 0x4014)
 	{
 		m_uDmaPage = data;
@@ -58,6 +62,12 @@ uint8_t Bus::cpuRead(uint16_t addr, bool bReadOnly)
 	return data;
 }
 
+void Bus::SetSampleFrequency(u_int32_t sample_rate)
+{
+	m_dAudioTimePerSystemSample = 1.0/(double)sample_rate;
+	m_dAudioTimePerNESClock = 1.0/PPU_CLOCK_FREQUENCY;
+}
+
 void Bus::insertCartridge(const std::shared_ptr<Cartridge>& pCartridge)
 {
     this->m_pCart = pCartridge;
@@ -72,9 +82,10 @@ void Bus::reset()
 	m_uNSystemClockCounter = 0;
 }
 
-void Bus::clock()
+bool Bus::clock()
 {
 	ppu.clock();
+	apu.clock();
 	if (m_uNSystemClockCounter % 3 == 0)
 	{
 		if (m_bDmaTransfer)
@@ -111,11 +122,28 @@ void Bus::clock()
 		}
 	}
 
+	bool bAudioSampleReady = false;
+	m_dAudioTime += m_dAudioTimePerNESClock;
+	if (m_dAudioTime >= m_dAudioTimePerSystemSample)
+	{
+		m_dAudioTime -= m_dAudioTimePerSystemSample;
+		m_dAudioSample = apu.GetOutputSample();
+		bAudioSampleReady = true;
+	}
+
     if (ppu.m_bNmi)
     {
         ppu.m_bNmi = false;
         cpu.nmi();
     }
 
+	if (m_pCart->GetMapper()->irqState())
+	{
+		m_pCart->GetMapper()->irqClear();
+		cpu.irq();
+	}
+
 	m_uNSystemClockCounter++;
+
+	return bAudioSampleReady;
 }

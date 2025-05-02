@@ -257,7 +257,7 @@ uint8_t Chip2C02::ppuRead(uint16_t addr, bool bRdOnly)
 	{
 		addr &= 0x0FFF;
 
-		if (m_pCart->mirror == Cartridge::MIRROR::VERTICAL)
+		if (m_pCart->Mirror() == MIRROR::VERTICAL)
 		{
 			// Vertical
 			if (addr >= 0x0000 && addr <= 0x03FF)
@@ -269,7 +269,7 @@ uint8_t Chip2C02::ppuRead(uint16_t addr, bool bRdOnly)
 			if (addr >= 0x0C00 && addr <= 0x0FFF)
 				data = m_uTableName[1][addr & 0x03FF];
 		}
-		else if (m_pCart->mirror == Cartridge::MIRROR::HORIZONTAL)
+		else if (m_pCart->Mirror() == MIRROR::HORIZONTAL)
 		{
 			// Horizontal
 			if (addr >= 0x0000 && addr <= 0x03FF)
@@ -310,7 +310,7 @@ void Chip2C02::ppuWrite(uint16_t addr, uint8_t data)
 	else if (addr >= 0x2000 && addr <= 0x3EFF)
 	{
 		addr &= 0x0FFF;
-		if (m_pCart->mirror == Cartridge::MIRROR::VERTICAL)
+		if (m_pCart->Mirror() == MIRROR::VERTICAL)
 		{
 			// Vertical
 			if (addr >= 0x0000 && addr <= 0x03FF)
@@ -322,7 +322,7 @@ void Chip2C02::ppuWrite(uint16_t addr, uint8_t data)
 			if (addr >= 0x0C00 && addr <= 0x0FFF)
 				m_uTableName[1][addr & 0x03FF] = data;
 		}
-		else if (m_pCart->mirror == Cartridge::MIRROR::HORIZONTAL)
+		else if (m_pCart->Mirror() == MIRROR::HORIZONTAL)
 		{
 			// Horizontal
 			if (addr >= 0x0000 && addr <= 0x03FF)
@@ -774,6 +774,15 @@ void Chip2C02::clock()
 	m_sSprScreen->SetPixel(cycle - 1, scanline, GetColourFromPaletteRam(palette, pixel));
     
 	cycle++;
+
+	if (mask.render_background || mask.render_sprites)
+	{
+		if (cycle == 260 && scanline < 240)
+		{
+			m_pCart->GetMapper()->scanline();
+		}
+	}
+
     if (cycle >= 341)
     {
         cycle = 0;

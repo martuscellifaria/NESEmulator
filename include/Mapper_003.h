@@ -2,11 +2,11 @@
 #include "Mapper.h"
 
 
-class Mapper_000 : public Mapper
+class Mapper_003 : public Mapper
 {
 public:
-	Mapper_000(uint8_t prgBanks, uint8_t chrBanks);
-	~Mapper_000();
+	Mapper_003(uint8_t prgBanks, uint8_t chrBanks);
+	~Mapper_003();
 
 public:
 	virtual bool cpuMapRead(uint16_t addr, uint32_t &mapped_addr, uint8_t &data) override;
@@ -15,4 +15,7 @@ public:
 	virtual bool ppuMapWrite(uint16_t addr, uint32_t &mapped_addr) override;
 
 	void reset() override;
+
+private:
+	uint8_t m_nPRGBankSelect = 0x00;
 };

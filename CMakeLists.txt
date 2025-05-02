@@ -15,5 +15,6 @@ link_libraries(
         GL
         X11
         pthread
+        asound
 )
 add_executable(NESBound ${all_SRCS})

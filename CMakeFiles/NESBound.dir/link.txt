@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -rdynamic CMakeFiles/NESBound.dir/src/Bus.o CMakeFiles/NESBound.dir/src/Cartridge.o CMakeFiles/NESBound.dir/src/Mapper.o CMakeFiles/NESBound.dir/src/Mapper_000.o CMakeFiles/NESBound.dir/src/chip2C02.o CMakeFiles/NESBound.dir/src/chip6502.o CMakeFiles/NESBound.dir/src/main.o -o NESBound  -lstdc++fs -lpng -lGL -lX11 -lpthread -lasound 

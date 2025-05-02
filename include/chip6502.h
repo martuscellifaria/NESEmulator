@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <cstdint>
 
 class Bus;
 class Chip6502

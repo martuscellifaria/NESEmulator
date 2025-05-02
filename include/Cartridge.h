@@ -6,6 +6,11 @@
 #include <vector>
 
 #include "Mapper_000.h"
+#include "Mapper_001.h"
+#include "Mapper_002.h"
+#include "Mapper_003.h"
+#include "Mapper_004.h"
+#include "Mapper_066.h"
 
 class Cartridge
 {
@@ -16,16 +21,9 @@ public:
 public:
 	bool imageValid();
 
-	enum MIRROR
-	{
-		HORIZONTAL,
-		VERTICAL,
-		ONESCREEN_LO,
-		ONESCREEN_HI,
-	} mirror = HORIZONTAL;
-
 private:
     bool bImageValid = false;
+    MIRROR hw_mirror = HORIZONTAL;
 
     uint8_t m_nMapperID = 0;
     uint8_t m_nPRGBanks = 0;
@@ -44,4 +42,7 @@ public:
     bool ppuWrite(uint16_t addr, uint8_t data);
 
     void reset();
+
+    MIRROR Mirror();
+    std::shared_ptr<Mapper> GetMapper() { return m_pMapper; }
 };
